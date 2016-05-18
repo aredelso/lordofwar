@@ -1,0 +1,108 @@
+* {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+    font-family: Assassin;
+    src: url('../fonts/assassin.ttf');
+}
+
+@font-face {
+  font-family: BebasNeue;
+  src: url('../fonts/BebasNeue.otf');
+}
+
+@suffer-font: 'Assassin', 'Times New Roman', serif;
+@main-font: 'BebasNeue', sans-serif;
+@primary-font-color: rgb(221, 221, 221);
+
+body{
+  margin: 0 auto;
+	text-align: center;
+  font-family: @main-font;
+  font-weight: 100;
+  background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('../img/citadel_med.jpg'), #151618;
+  background-size:  100%, 100%;
+  background-repeat: repeat, no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.logo {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+    filter: url(shadow.svg#drop-shadow);
+  }
+}
+
+h1{
+  color: @primary-font-color;
+  font-family: @suffer-font;
+  font-weight: 400;
+  font-size: 28px;
+  font-size: 2.5vw;
+  text-shadow: 2px 2px 8px black;
+}
+
+#clockdiv{
+	color: @primary-font-color;
+	display: inline-block;
+  font-family: @main-font;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+  font-size: 3vw;
+  text-shadow: 2px 2px 8px black;
+  margin-top: 40px;
+
+  div{
+  	padding: 10px;
+    background: rgba(0, 0, 0, 0);
+  	display: inline-block;
+
+    span{
+      font-size: 5vw;
+      font-weight: 700;
+    	padding: 15px;
+      padding-top: 0px;
+    	border-radius: 3px;
+    	display: inline-block;
+    }
+    
+    .smalltext{
+    	padding-top: 5px;
+      font-size: 16px;
+    	font-size: 1.3vw;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+
+    #clockdiv > div {
+      padding: 0;
+    }
+
+    #clockdiv div > span {
+      padding-bottom: 0;
+    }
+}
