@@ -1,0 +1,23 @@
+{
+  'albums' : [
+    {
+      'title' : 'Suffer',
+      'cover_img' : 'img/suffer/suffer.jpg',
+      'tracks' : [
+        'Age of Heresy',
+        'Nexus of Hate',
+        'Embryo',
+        'Suffer',
+        'Behold the Harvest',
+        'Manufactured Existence',
+        'Skin',
+        'Carbon Based Genocide',
+        'Hamunaptra',
+        'Drowning',
+        'Killing Must Feel Good to God'
+      ],
+      'bandcamp_link' : 'https://uniqueleaderrecords.bandcamp.com/album/suffer',
+      'preorder_link' : 'http://www.indiemerch.com/uniqueleader/band/lord-of-war'
+    }
+  ]
+}

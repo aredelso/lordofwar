@@ -1,4 +1,31 @@
-@import "index";
+@font-face {
+    font-family: Assassin;
+    src: url('../fonts/assassin.ttf');
+}
+
+@font-face {
+  font-family: BebasNeue;
+  src: url('../fonts/BebasNeue.otf');
+}
+
+@suffer-font: 'Assassin', 'Times New Roman', serif;
+@main-font: 'BebasNeue', sans-serif;
+@primary-font-color: rgb(221, 221, 221);
+
+* {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
 
 body{
   margin: 0 auto;
@@ -6,21 +33,81 @@ body{
   font-family: @main-font;
   font-weight: 100;
   background:
-      url('../img/background_main.png'), #020202;
-  background-size:  70%, 100%;
-  background-repeat: no-repeat, repeat;
+      url('../img/background_main_2.png'), url('../img/texture.png'), #000000;
+  background-size:  1400px 1453px, 296px 300px, 100%;
+  background-repeat: no-repeat, repeat, repeat;
   background-position: top;
   width: 100%;
   height: 100%;
 }
 
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+	z-index: 9999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(244, 244, 244);
+
+  img {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    height: 250px;
+    margin-top: -125px;
+    margin-left: -125px;
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+  }
+}
+
 .nav {
   margin: 0 auto;
-  height: 84px;
+  height: 100px;
   font-size: 40px;
   position: relative;
+  text-transform: uppercase;
 
-  .main-nav {
+  .main_nav {
     line-height: 84px;
     z-index: 1;
     position: absolute;
@@ -41,6 +128,10 @@ body{
       a {
         text-decoration: none;
         color: @primary-font-color;
+        -webkit-transition: text-shadow ease-out .5s;
+        -moz-transition: text-shadow ease-out .5s;
+        -o-transition: text-shadow ease-out .5s;
+        transition: text-shadow ease-out .5s;
 
         &:hover {
           text-shadow: 0px 0px 8px @primary-font-color;
@@ -49,52 +140,276 @@ body{
     }
   }
 
-  .mobile-nav {
+  .mobile_nav {
     visibility: hidden;
     color: @primary-font-color;
-    text-align: left;
     font-size: 28px;
     line-height: 84px;
-    left: 20%;
+    width: 60%;
     position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
     z-index: 2;
+
+    i {
+      float: left;
+      line-height: 84px;
+    }
+
+    img {
+      width: 95px;
+      height: 84px;
+      margin: 0 auto;
+      float: none;
+
+    }
+  }
+}
+
+.logo_contain {
+  margin: 0 auto;
+  width: 1280px;
+
+  .logo {
+    margin: 0 auto;
+    width: 800px;
+
+    img {
+      margin: 0 auto;
+      width: 800px;
+      -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+      filter: url(shadow.svg#drop-shadow);
+    }
   }
 }
 
 .container {
   margin: 0 auto;
-  width: 80%;
-}
+  margin-top: 450px;
+  width: 1200px;
+  min-height: 400px;
+  background:
+      url('../img/scratches.png'),
+      #0e0f0f;
+  background-size:  296px 300px, 100%;
+  background-repeat: repeat, repeat;
+  background-position: top;
+  color: @primary-font-color;
 
-.logo {
-  margin: 0 auto;
-  width: 800px;
+  .yt_contain {
+    padding: 10px;
+    min-height: 300px;
+  }
 
-  img {
-    width: 100%;
-    height: 100%;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0));
-    filter: url(shadow.svg#drop-shadow);
+  h2 {
+    font-size: 36px;
+    margin: 10px;
+  }
+
+  .new_album {
+    float: left;
+    text-align: left;
+    min-height: 300px;
+    width: 750px;
+    padding: 10px;
+    margin-top: 40px;
+    position: relative;
+
+    .cover_contain {
+      float: left;
+      width: 350px;
+      height: 350px;
+
+      img {
+        position: absolute;
+      }
+
+      .overlay {
+        width: 350px;
+        height: 350px;
+        background-color: rgba(0,0,0,0);
+        position: relative;
+        -webkit-transition: all ease-out .5s;
+        -moz-transition: all ease-out .5s;
+        -o-transition: all ease-out .5s;
+        transition: all ease-out .5s;
+
+        &:hover {
+          background-color: rgba(0,0,0,.7);
+
+        }
+
+        &:hover h1 {
+          color: @primary-font-color;
+        }
+
+        h1 {
+          height: 350px;
+          width: 350px;
+          text-decoration: none;
+          color: rgba(0,0,0,0);
+          text-align: center;
+          margin: auto;
+          line-height: 350px;
+          font-size: 36px;
+          -webkit-transition: all ease-out .5s;
+          -moz-transition: all ease-out .5s;
+          -o-transition: all ease-out .5s;
+          transition: all ease-out .5s;
+        }
+      }
+    }
+
+    .track_list_contain {
+      float: left;
+
+      h2 {
+        margin-left: 30px;
+      }
+
+      .track_list {
+        margin-left: 30px;
+        min-width: 200px;
+        font-size: 18px;
+        list-style: none;
+      }
+    }
+  }
+
+  .tour {
+    float: right;
+    margin-right: 10px;
+    height: 600px;
+    padding: 10px;
+
+    .datesTable {
+      margin: 0 auto;
+      text-align: left;
+      font-size: 20px;
+      width: 400px;
+      border-collapse: collapse;
+
+      thead {
+        tr {
+          display:block;
+          td {
+            padding: 5px;
+          }
+          .date {
+            width: 40px;
+          }
+          .location, .venue {
+            width: 120px;
+          }
+          .ticket {
+            width: 60px;
+          }
+        }
+      }
+      tbody {
+        height: 400px;
+        overflow: auto;
+        width: 400px;
+        display: block;
+
+        tr {
+          border-bottom: 1px solid @primary-font-color;
+
+          &:last-child {
+            border: 0;
+          }
+
+          td {
+            padding: 5px;
+          }
+          .date {
+            width: 40px;
+          }
+          .location, .venue {
+            width: 120px;
+          }
+          .ticket {
+            width: 60px;
+
+            a {
+              text-decoration: none;
+              color: @primary-font-color;
+              -webkit-transition: text-shadow ease-out .5s;
+              -moz-transition: text-shadow ease-out .5s;
+              -o-transition: text-shadow ease-out .5s;
+              transition: text-shadow ease-out .5s;
+
+              &:hover {
+                text-shadow: 0px 0px 8px @primary-font-color;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
+
 
 @media only screen and (max-width: 1280px) {
 
-  body {
-    background-size:  100%, 100%;
+  body{
+    background-size:  100%, 296px 300px, 100%;
+  }
+
+  .nav {
+    height: 50px;
+    font-size: 32px;
+
+    .main_nav {
+      line-height: 50px;
+
+      li {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  .container {
+    width: 90%;
   }
 
   .logo {
-    width: 64%;
+    width: 80%;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  body {
+    background: url('../img/texture.png'), #000000;
+    background-size: 296px 300px, 100%;
+    background-repeat: repeat, repeat;
   }
 
-  .main-nav {
-    visibility: hidden !important;
+  .container {
+    width: 80%;
   }
 
-  .mobile-nav {
-    visibility: visible !important;
+  .logo {
+    visibility: hidden;
   }
 
+  .nav {
+    height: 100px;
 
+    .main_nav {
+      visibility: hidden !important;
+    }
+
+    .mobile_nav {
+      visibility: visible !important;
+      line-height: 100px;
+    }
+  }
 }
